@@ -10,10 +10,17 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up python ${{ matrix.python-version}}
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version}}
+
+    - name: Set environment
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+      run: python -c "import os; print(os.environ.get('PYTHONPATH', []))"
+
     - name: Run unittest
       run: |
         python -c "print('Hello Github actions!')"
