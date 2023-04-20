@@ -29,7 +29,9 @@ jobs:
 
     - name: Set PYTHONPATH
       run: |
-        echo "::add-path::$(pwd)/TestingEdge"
+        # echo "::set-env name=PYTHONPATH::home/runner/work/<repo_name>"
+        echo "::set-env name=PYTHONPATH::${{ github.workspace }}>"
+
     - name: Run unittest
       run: |
         python -c "print('Hello Github actions!')"
