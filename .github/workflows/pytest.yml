@@ -22,19 +22,11 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install pytest
 
-    - name: Set environment
-      env:
-        PYTHONPATH: ${{ github.workspace }}
-      run: python -c "import os; print(os.environ.get('PYTHONPATH', []))"
-
     - name: Set PYTHONPATH
       run: |
         echo "PYTHONPATH=/home/runner/work/TestingEdge" >> $GITHUB_ENV
-        echo "name=zg" >> $GITHUB_ENV
 
     - name: Run unittest
       run: |
-        python -c "print('Hello Github actions!')"
-        python -c "import os; print(os.environ.get('PYTHONPATH', [])); print(os.environ.get('name'))"
-        pytest ${{ github.workspace }}/test
+        pytest ./test
       
