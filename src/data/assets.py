@@ -9,4 +9,4 @@ def get_prp():
 
 
 def get_env():
-    return 'env'
+    return 'Environment'

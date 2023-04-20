@@ -26,7 +26,7 @@ jobs:
       run: |
         echo "PYTHONPATH=/home/runner/work/TestingEdge" >> $GITHUB_ENV
 
-    - name: Run unittest
+    - name: Run pytest
       run: |
         pytest ./test
       
