@@ -29,12 +29,12 @@ jobs:
 
     - name: Set PYTHONPATH
       run: |
-        # echo "::set-env name=PYTHONPATH::home/runner/work/<repo_name>"
-        echo "::set-env name=PYTHONPATH::${{ github.workspace }}>"
+        echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
+        echo "name=zg" >> $GITHUB_ENV
 
     - name: Run unittest
       run: |
         python -c "print('Hello Github actions!')"
-        python -c "import os; print(os.environ.get('PYTHONPATH', []))"
+        python -c "import os; print(os.environ.get('PYTHONPATH', [])); print(os.environ.get('name'))"
         pytest ${{ github.workspace }}/test
       
