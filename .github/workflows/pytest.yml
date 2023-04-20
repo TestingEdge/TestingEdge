@@ -24,4 +24,5 @@ jobs:
     - name: Run unittest
       run: |
         python -c "print('Hello Github actions!')"
+        pytest
       
