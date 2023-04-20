@@ -13,7 +13,7 @@ class TestAssets(TestCase):
         self.assertEqual(get_prp(), 'prp')
 
     def test_get_env(self):
-        self.assertEqual(get_env(), 'env')
+        self.assertEqual(get_env(), 'Environment')
         
         
 if __name__ == '__main__':
