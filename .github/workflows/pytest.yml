@@ -27,12 +27,14 @@ jobs:
         PYTHONPATH: ${{ github.workspace }}
       run: python -c "import os; print(os.environ.get('PYTHONPATH', []))"
 
+    - name: Set PYTHONPATH
+      run: |
+        echo pwd
+        echo $GITHUB_ENV
+        echo "export PYTHONPATH=$(pwd)/TestingEdge" >> $GITHUB_ENV
+        echo $GITHUB_ENV
     - name: Run unittest
       run: |
-        echo $pwd
-        echo $$GITHUB_ENV
-        echo "export PYTHONPATH=$(pwd)/TestingEdge" >> $GITHUB_ENV
-        echo $$GITHUB_ENV
         python -c "print('Hello Github actions!')"
         python -c "import os; print(os.environ.get('PYTHONPATH', []))"
         pytest ${{ github.workspace }}/test
